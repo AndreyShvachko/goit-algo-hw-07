@@ -26,15 +26,15 @@ class BinarySearchTree:
             else:
                 self._insert(node.right, key)
 
-    def find_max(self):
+    def find_min(self):
         if self.root is None:
             return None
-        return self._find_max(self.root)
+        return self._find_min(self.root)
     
-    def _find_max(self, node):
+    def _find_min(self, node):
         current = node
-        while current.right is not None:
-            current = current.right
+        while current.left is not None:
+            current = current.left
         return current.value
 # створення дерева
 bst = BinarySearchTree()
@@ -43,6 +43,5 @@ values = [8, 3, 10, 1, 6, 14, 4, 7, 13]
 for val in values:
     bst.insert(val)
 
-max_value = bst.find_max()
-print("Найбільше значення в дереві:", max_value)
-
+min_value = bst.find_min()
+print("Найменше значення в дереві:", min_value)
